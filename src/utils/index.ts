@@ -26,7 +26,9 @@ export function getMonthGrid(month: any) {
   export function getRandomColor() {
     const randomShades = ['1', '2', '3', '4', '5', '6', '7', '8'];
   
-    const color = {
+    const color: {
+      [key: string]: string;
+    } = {
       1: 'indigo',
       2: 'gray',
       3: 'green',
@@ -42,10 +44,12 @@ export function getMonthGrid(month: any) {
     return `bg-${color[randomShade]}-500`;
   }
   
-  export function getmonth(monthIndex) {
-    const date = new Date();
-    const monthindex = date.getMonth();
-    const months = {
+  export function getmonth(monthIndex: number | null = 1): string {
+    // const date = new Date();
+    // const monthindex = date.getMonth();
+    const months: {
+      [key: number]: string;
+    } = {
       1: 'January',
       2: 'February',
       3: 'March',
@@ -59,11 +63,11 @@ export function getMonthGrid(month: any) {
       11: 'November',
       12: 'Desember',
     };
-    const month = monthIndex ? months[monthIndex] : months[monthindex]
+    const month = monthIndex ? months[monthIndex] : months[1];
     return month
   }
   
-  export function convertTimeStamp(timestamp) {
+  export function convertTimeStamp(timestamp: any) {
     const date = new Date(timestamp);
     const day = date.getDate().toString().padStart(2, '0');
     const month = (date.getMonth() + 1).toString().padStart(2, '0');
@@ -74,21 +78,21 @@ export function getMonthGrid(month: any) {
     return formatedDate;
   }
   
-  export function getDay(timeStamp) {
+  export function getDay(timeStamp: any) {
     const date = new Date(timeStamp);
     const day = date.getDate().toString().padStart(2, '0');
   
     return day;
   }
   
-  export function getMonthIndex(timestamp) {
+  export function getMonthIndex(timestamp: any) {
     const date = new Date(timestamp);
     const month = (date.getMonth() + 1).toString();
   
     return month;
   }
   
-  export function getHours(timestamp) {
+  export function getHours(timestamp: any) {
     const timeStamp = timestamp * 1000;
     const hours = new Date(timeStamp).toLocaleTimeString();
     return hours;

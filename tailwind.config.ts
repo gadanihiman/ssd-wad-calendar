@@ -1,8 +1,8 @@
-import type { Config } from 'tailwindcss'
+// import type { Config } from 'tailwindcss'
 
 const labelsClasses = ['indigo', 'gray', 'green', 'blue', 'purple', 'pink', 'red', 'orange'];
 
-const config: Config = {
+const config = {
   // content: [
   //   './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
   //   './src/components/**/*.{js,ts,jsx,tsx,mdx}',

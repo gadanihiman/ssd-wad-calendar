@@ -11,7 +11,7 @@ export default function EventModal() {
   const [time, setTime] = useState(selectedEvent ? selectedEvent.time : '');
   
 
-  function handleSubmit(e) {
+  function handleSubmit(e : any) {
     e.preventDefault();
     const color = getRandomColor();
 
@@ -20,7 +20,7 @@ export default function EventModal() {
       email,
       time,
       label: color,
-      day: daySelected.valueOf(),
+      day: daySelected ? daySelected.valueOf() : null,
       id: selectedEvent ? selectedEvent.id : Date.now(),
     };
     if (selectedEvent) {
@@ -43,7 +43,7 @@ export default function EventModal() {
         <div className="p-3">
           <div className="grid items-end gap-y-7">
             <div className="flex items-center gap-4">
-              <label for="title">Event Name</label>
+              <label>Event Name</label>
               <input
                 type="text"
                 name="title"
@@ -55,7 +55,7 @@ export default function EventModal() {
               />
             </div>
             <div className="flex items-center gap-4">
-              <label for="email">Email</label>
+              <label>Email</label>
               <input
                 type="email"
                 name="email"
@@ -67,7 +67,7 @@ export default function EventModal() {
               />
             </div>
             <div className="flex items-center gap-4">
-              <label for="time">Time</label>
+              <label>Time</label>
               <input
                 type="time"
                 name="time"

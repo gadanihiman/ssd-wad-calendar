@@ -7,7 +7,7 @@ function formatDateString(dateString: string) {
   return new Date(dateString).toISOString().split('T')[0];
 }
 
-export default function Day({ day }: { day: { a: string; m: string } }) {
+export default function Day({ day, rowIdx }: { day: { a: string | number; m: string }, rowIdx: number }) {
   const [dayEvents, setDayEvents] = useState<
     {
       id: string;

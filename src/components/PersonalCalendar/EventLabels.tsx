@@ -3,7 +3,11 @@ import { FaEdit, FaTrash } from 'react-icons/fa';
 
 import GlobalContext from '@/context/GlobalContext';
 
-export function EventLabels({ evt, dayEvents, day }) {
+export function EventLabels({ evt, dayEvents, day }: {
+  evt: any;
+  dayEvents: any;
+  day: any;
+}) {
   const { setSelectedEvent, setDaySelected, setShowEventModal, dispatchCalEvent } = useContext(GlobalContext);
 
   const height = dayEvents.length === 3 ? 'h-2/6' : dayEvents.length === 2 ? 'h-3/6' : 'h-full';

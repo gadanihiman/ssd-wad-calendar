@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useReducer, useMemo } from 'react';
 import GlobalContext from './GlobalContext';
 
-function eventReducer(state, { type, payload }) {
+function eventReducer(state: any[], { type, payload }: any) {
   switch (type) {
     case 'push':
-      const events = state.filter((val) => val.day === payload.day);
+      const events = state.filter((val: { day: any; }) => val.day === payload.day);
 
       if (events.length === 3) {
         window.alert('Cannot add more than three events');
@@ -14,10 +14,10 @@ function eventReducer(state, { type, payload }) {
       return [...state, payload];
 
     case 'update':
-      return state.map((evt) => (evt.id === payload.id ? payload : evt));
+      return state.map((evt: { id: any; }) => (evt.id === payload.id ? payload : evt));
     case 'delete':
       window.location.reload();
-      return state.filter((evt) => evt.id !== payload.id);
+      return state.filter((evt: { id: any; }) => evt.id !== payload.id);
     default:
       throw new Error();
   }
